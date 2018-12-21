@@ -55,10 +55,8 @@ async function getReleaseNotes (currentBranch, newVersion) {
     return { text: 'Nightlies do not get release notes, please compare tags for info.' }
   }
   console.log(`Generating release notes for ${currentBranch}.`)
-  const releaseNotes = await releaseNotesGenerator(currentBranch, newVersion)
-  if (releaseNotes.warning) {
-    console.warn(releaseNotes.warning)
-  }
+  const releaseNotes = await releaseNotesGenerator(currentBranch)
+  if (releaseNotes.warning) console.warn(releaseNotes.warning)
   return releaseNotes
 }
 
