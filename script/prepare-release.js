@@ -56,7 +56,9 @@ async function getReleaseNotes (currentBranch, newVersion) {
   }
   console.log(`Generating release notes for ${currentBranch}.`)
   const releaseNotes = await releaseNotesGenerator(currentBranch)
-  if (releaseNotes.warning) console.warn(releaseNotes.warning)
+  if (releaseNotes.warning) {
+    console.warn(releaseNotes.warning)
+  }
   return releaseNotes
 }
 
