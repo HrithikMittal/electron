@@ -79,6 +79,9 @@ v8::Local<v8::Promise> OpenExternal(
     const GURL& url,
 #endif
     mate::Arguments* args) {
+
+  v8::Locker locker(args->isolate());
+  v8::HandleScope handle_scope(args->isolate());
   scoped_refptr<atom::util::Promise> promise =
       new atom::util::Promise(args->isolate());
 
