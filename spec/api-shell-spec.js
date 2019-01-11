@@ -20,7 +20,6 @@ describe('shell module', () => {
     let envVars = {}
 
     beforeEach(function () {
-      if (process.platform === 'win32') this.skip()
       envVars = {
         display: process.env.DISPLAY,
         de: process.env.DE,
@@ -37,7 +36,7 @@ describe('shell module', () => {
       }
     })
 
-    it('opens an external link asynchronously', function (done) {
+    it('opens an external link asynchronously', done => {
       const url = 'http://www.example.com'
       if (process.platform === 'linux') {
         process.env.BROWSER = '/bin/true'
@@ -48,7 +47,7 @@ describe('shell module', () => {
       shell.openExternal(url).then(() => done())
     })
 
-    it('opens an external link synchronously', function () {
+    it('opens an external link synchronously', () => {
       const url = 'http://www.example.com'
       if (process.platform === 'linux') {
         process.env.DE = 'generic'
